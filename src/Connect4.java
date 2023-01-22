@@ -42,6 +42,10 @@ public class Connect4 {
     public static void playerMove(int player) {
         System.out.print("Player " + player + ", choose a column: ");
         int col = sc.nextInt();
+        while(board[0][col] != '.'){
+            System.out.println("Column is full. Choose another column.");
+            col = sc.nextInt();
+        }
         for (int i = 5; i >= 0; i--) {
             if (board[i][col] == '.') {
                 if (player == 1) {
@@ -53,6 +57,7 @@ public class Connect4 {
             }
         }
     }
+
 
     public static boolean checkWin(int player) {
         char marker = 'X';
